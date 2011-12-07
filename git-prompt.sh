@@ -148,6 +148,7 @@
         if   [[ -z "$TERM"   ||  ("$TERM" = "dumb" && -z "$INSIDE_EMACS")  ||  -n "$MC_SID" ]];   then
                 unset PROMPT_COMMAND
                 PS1="\w$prompt_char "
+                #PS1="\h:\W \u\\$"
                 return 0
         fi
 
@@ -223,7 +224,6 @@ cwd_truncate() {
 
 
 set_shell_label() {
-
         xterm_label() {
                 local args="$*"
                 echo  -n "]2;${args:0:200}" ;    # FIXME: replace hardcodes with terminfo codes
